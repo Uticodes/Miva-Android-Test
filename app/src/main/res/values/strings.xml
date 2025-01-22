@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Miva AndroidTest</string>
+    <string name="app_name">Miva</string>
+    <string name="chapters_lessons">%d chapters / %d lessons</string>
 </resources>
