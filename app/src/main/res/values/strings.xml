@@ -1,4 +1,26 @@
 <resources>
     <string name="app_name">Miva</string>
     <string name="chapters_lessons">%d chapters / %d lessons</string>
+    <string name="home">Home</string>
+    <string name="classes">Classes</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="downloads">Downloads</string>
+    <string name="more">More</string>
+    <string name="not_available">Not available for now.</string>
+    <string name="mathematics">Mathematics</string>
+    <string name="english">English</string>
+    <string name="biology">Biology</string>
+    <string name="chemistry">Chemistry</string>
+    <string name="physics">Physics</string>
+    <string name="government">Government</string>
+    <string name="accounting">Accounting</string>
+    <string name="economics">Economics</string>
+    <string name="literature">Literature</string>
+    <string name="what_would_you_like_to_learn">What would you like to learn?</string>
+    <string name="chapters">Chapters</string>
+    <string name="chapter">Chapter %1$s</string>
+    <string name="lessons">%1$s Lessons</string>
+    <string name="search_for_a_lesson_or_topic">Search for a lesson or topic</string>
+
+    <string name="only_biology_is_available">Not available yet. Only Biology is available at the moment</string>
 </resources>
