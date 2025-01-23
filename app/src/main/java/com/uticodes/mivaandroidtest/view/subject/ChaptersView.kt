@@ -34,6 +34,7 @@ import com.uticodes.mivaandroidtest.R
 import com.uticodes.mivaandroidtest.data.models.Chapter
 import com.uticodes.mivaandroidtest.data.models.Lesson
 import com.uticodes.mivaandroidtest.ui.theme.Grey
+import com.uticodes.mivaandroidtest.ui.theme.Orange
 import com.uticodes.mivaandroidtest.ui.theme.TextColor
 
 @Composable
@@ -64,7 +65,9 @@ fun ChapterCard(chapter: Chapter, index: Int, onSelectedLesson: (title: Lesson) 
             .clip(RoundedCornerShape(24.dp))
             .fillMaxWidth()
             .padding(2.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.White,
+        ),
         elevation = CardDefaults.cardElevation(0.dp),
         shape = MaterialTheme.shapes.large
     ) {
@@ -153,7 +156,7 @@ fun LessonTile(lesson: Lesson, onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .clickable { onClick() }
-            .border(1.dp, Color.Black, RoundedCornerShape(12.dp))
+            .border(1.dp, Orange, RoundedCornerShape(12.dp))
             .fillMaxWidth()
             .padding(12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
