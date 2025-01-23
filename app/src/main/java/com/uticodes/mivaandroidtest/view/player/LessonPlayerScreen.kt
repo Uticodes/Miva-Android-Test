@@ -209,7 +209,7 @@ fun LessonPlayerScreen(navigator: DestinationsNavigator) {
                     temporarilyPaused = false
                 }
             },
-            title = { Text("Add Bookmark") },
+            title = { Text("Add Notes") },
             text = {
                 Column {
                     TextField(
