@@ -103,8 +103,8 @@ The proposed EdTech app is designed to provide learners with an accessible, enga
 - **ChapterRepository**: Handles data retrieval (local/remote).
 - **LessonViewModel**: Manages UI state for lessons.
 - **ExoPlayerWrapper**: Encapsulates video playback logic.
-- **NotesManager**: Manages notes linked to video timestamps.
-- **RewardManager**: Handles badge rewards.
+- **VideoDownloadService**: Manages notes linked to video timestamps.
+- **DownloadManager**: Handles badge rewards.
 
 **Diagram Structure:**
 com.uticodes.mivaandroidtest
@@ -176,3 +176,4 @@ com.uticodes.mivaandroidtest
 - **Caching Strategy**: Videos are cached using WorkManager to schedule downloads during idle times and WiFi-only conditions.
 - **Offline Sync**: Implemented with periodic syncing using Room and WorkManager.
 - **Testing**: Includes unit tests for business logic and UI tests for critical user flows.
+- 
