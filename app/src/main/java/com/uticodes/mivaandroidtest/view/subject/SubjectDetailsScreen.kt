@@ -113,7 +113,7 @@ fun SubjectDetailsScreen(navigator: DestinationsNavigator) {
                     }
                 ) { lesson ->
                     val chapter = chapters.firstOrNull { it.lessons.contains(lesson) } ?: return@ChaptersView
-                    //Navigate to LessonPlayerScreen
+                    // Navigate to LessonPlayerScreen
                 }
             }
         }

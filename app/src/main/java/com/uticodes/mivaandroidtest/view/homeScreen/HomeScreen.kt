@@ -61,8 +61,8 @@ fun HomeScreen(
                     Text(
                         stringResource(R.string.what_would_you_like_to_learn),
                         color = TextColor,
-                        )
-                              },
+                    )
+                },
             ) { searchQuery = it }
 
             Subjects(

@@ -36,4 +36,3 @@ fun TitleText(
         fontWeight = fontWeight
     )
 }
-

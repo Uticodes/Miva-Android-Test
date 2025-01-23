@@ -33,7 +33,7 @@ import com.uticodes.mivaandroidtest.ui.theme.White
 @OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
 @Composable
 fun CarouselView() {
-    val pagerState = rememberPagerState(pageCount = {4})
+    val pagerState = rememberPagerState(pageCount = { 4 })
 
     val imageResources = listOf(
         R.drawable.ic_carousel,

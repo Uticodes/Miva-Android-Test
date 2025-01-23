@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.uticodes.mivaandroidtest.data.models.Chapter
 import com.uticodes.mivaandroidtest.data.models.Subject
 import com.uticodes.mivaandroidtest.usecases.GetChapterUseCase
-import com.uticodes.mivaandroidtest.usecases.GetSubjectsUseCase
 import com.uticodes.mivaandroidtest.utils.UIState
 import com.uticodes.mivaandroidtest.view.destinations.SubjectDetailsScreenDestination
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,7 +26,6 @@ class SubjectViewModel @Inject constructor(
     val uiState = mutableStateOf(UIState.IDLE)
     val chapters = mutableStateListOf<Chapter>()
     val searchQuery = mutableStateOf("")
-
 
     fun loadChapters() {
         uiState.value = UIState.LOADING

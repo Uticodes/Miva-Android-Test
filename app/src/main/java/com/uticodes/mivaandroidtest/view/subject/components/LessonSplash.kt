@@ -41,9 +41,9 @@ import kotlinx.coroutines.delay
 )
 @Composable
 fun LessonSplashScreen(
-    navigator: DestinationsNavigator
+//    navigator: DestinationsNavigator
 ) {
-    var progress by remember { mutableStateOf(0f) }
+    var progress by remember { androidx.compose.runtime.mutableFloatStateOf(0f) }
 
     LaunchedEffect(Unit) {
         while (progress < 1f) {
@@ -109,7 +109,6 @@ fun LessonSplashScreen(
         }
     }
 }
-
 
 data class LessonSplashScreenNavArgs(
     val subject: Subject

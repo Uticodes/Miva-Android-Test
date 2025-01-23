@@ -23,7 +23,6 @@ class HomeViewModel @Inject constructor(
     val subjects = mutableStateListOf<Subject>()
     val searchQuery = mutableStateOf("")
 
-
     fun loadSubjects() {
         viewModelScope.launch {
             subjects.clear()

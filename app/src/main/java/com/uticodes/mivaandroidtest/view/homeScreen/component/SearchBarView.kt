@@ -61,4 +61,3 @@ fun SearchBarView(
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
     )
 }
-

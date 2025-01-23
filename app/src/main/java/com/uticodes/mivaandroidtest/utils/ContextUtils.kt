@@ -8,7 +8,6 @@ import androidx.activity.ComponentActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.uticodes.mivaandroidtest.R
 
 fun Context.findActivity(): ComponentActivity? = when (this) {
     is ComponentActivity -> this
