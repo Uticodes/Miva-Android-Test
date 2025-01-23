@@ -20,60 +20,79 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.uticodes.mivaandroidtest.R
-import com.uticodes.mivaandroidtest.data.models.Subject
+import com.uticodes.mivaandroidtest.utils.LessonsWrapper
+import com.uticodes.mivaandroidtest.view.destinations.LessonPlayerScreenDestination
+import com.uticodes.mivaandroidtest.view.destinations.LessonSplashScreenDestination
 import kotlinx.coroutines.delay
 
-@OptIn(ExperimentalComposeUiApi::class)
-@Destination(
-    navArgsDelegate = LessonSplashScreenNavArgs::class
-)
+@Destination
 @Composable
 fun LessonSplashScreen(
-//    navigator: DestinationsNavigator
+    navigator: DestinationsNavigator,
+    lessons: LessonsWrapper,
+    index: Int
 ) {
+
     var progress by remember { androidx.compose.runtime.mutableFloatStateOf(0f) }
+    val lesson = lessons.lessons[index]
 
     LaunchedEffect(Unit) {
         while (progress < 1f) {
             progress += 0.01f
             delay(30)
         }
-        // Navigate to the next screen when progress completes
+
+        navigator.navigate(
+            LessonPlayerScreenDestination(
+                lessons = lessons,
+                index = index
+            ),
+            onlyIfResumed = true,
+            builder = {
+                popUpTo(LessonSplashScreenDestination.route) { inclusive = true }
+            }
+        )
     }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFF6E40)), // Replace with your background color
-        contentAlignment = Alignment.Center // Center everything in the Box
+            .background(Color(0xFFFF6E40)),
+        contentAlignment = Alignment.Center
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.ic_lesson_splash),
+            contentDescription = "Background Image",
+            modifier = Modifier.fillMaxSize(),
+            alignment = Alignment.Center,
+        )
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             Box(
                 modifier = Modifier
-                    .size(100.dp), // Adjust size for the image and progress
+                    .size(100.dp),
                 contentAlignment = Alignment.Center
             ) {
-                // Circular Progress Indicator
                 CircularProgressIndicator(
                     progress = {
-                        progress // Progress between 0.0 and 1.0
+                        progress
                     },
-                    modifier = Modifier.matchParentSize(), // Match the size of the Box
-                    color = Color.White, // Progress bar color
-                    strokeWidth = 6.dp, // Thickness of the progress bar
+                    modifier = Modifier.matchParentSize(),
+                    color = Color.White,
+                    strokeWidth = 6.dp,
                 )
 
                 Image(
@@ -88,7 +107,7 @@ fun LessonSplashScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Chapter 1",
+                text = "Lesson ${index + 1}",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     color = Color.White,
                     fontSize = 16.sp
@@ -97,17 +116,15 @@ fun LessonSplashScreen(
             )
 
             Text(
-                text = "Properties of Plane shapes",
+                text = lesson.title,
+                modifier = Modifier.padding(horizontal = 80.dp),
                 style = MaterialTheme.typography.titleMedium.copy(
                     color = Color.White,
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
                 )
             )
         }
     }
 }
-
-data class LessonSplashScreenNavArgs(
-    val subject: Subject
-)
