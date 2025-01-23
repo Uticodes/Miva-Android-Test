@@ -107,7 +107,7 @@ fun LessonSplashScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Chapter 1",
+                text = "Lesson ${index+1}",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     color = Color.White,
                     fontSize = 16.sp
