@@ -34,7 +34,9 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.uticodes.mivaandroidtest.R
 import com.uticodes.mivaandroidtest.data.models.Chapter
 import com.uticodes.mivaandroidtest.ui.theme.TextColor
+import com.uticodes.mivaandroidtest.utils.LessonsWrapper
 import com.uticodes.mivaandroidtest.utils.UIState
+import com.uticodes.mivaandroidtest.view.destinations.LessonPlayerScreenDestination
 import com.uticodes.mivaandroidtest.view.homeScreen.component.SearchBarView
 import com.uticodes.mivaandroidtest.view.homeScreen.component.TitleText
 import com.uticodes.mivaandroidtest.view.subject.components.TopBar
@@ -52,6 +54,7 @@ fun SubjectDetailsScreen(navigator: DestinationsNavigator) {
     var searchQuery by remember { viewModel.searchQuery }
     val uiState by remember { viewModel.uiState }
     val chapters = remember { viewModel.chapters }
+    val resumeLearningProgress by remember { viewModel.resumeLearningProgress }
 
     LaunchedEffect(Unit) {
         viewModel.loadChapters()
@@ -98,6 +101,35 @@ fun SubjectDetailsScreen(navigator: DestinationsNavigator) {
                     placeholder = { Text(stringResource(R.string.search_for_a_lesson_or_topic)) }
                 ) { searchQuery = it }
 
+                resumeLearningProgress?.let {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    val chapter = chapters.find { chapter -> chapter.lessons.contains(it.lesson) }
+
+                    chapter?.let { chapterItem ->
+                        TitleText(
+                            text = stringResource(R.string.resume_learning),
+                            testTag = "resumeLearning"
+                        )
+
+                        ResumeLearning(
+                            title = it.lesson.title,
+                            subtitle = stringResource(
+                                R.string.you_ve_watched_of_lessons,
+                                chapterItem.lessons.indexOf(it.lesson) + 1,
+                                chapterItem.lessons.size
+                            )
+                        ) {
+                            navigator.navigate(
+                                LessonPlayerScreenDestination(
+                                    lessons = LessonsWrapper(chapter.lessons),
+                                    index = chapter.lessons.indexOf(it.lesson)
+                                )
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
+
                 TitleText(
                     text = stringResource(R.string.chapters),
                     testTag = "chapterTitle"
@@ -113,7 +145,12 @@ fun SubjectDetailsScreen(navigator: DestinationsNavigator) {
                     }
                 ) { lesson ->
                     val chapter = chapters.firstOrNull { it.lessons.contains(lesson) } ?: return@ChaptersView
-                    // Navigate to LessonPlayerScreen
+                    navigator.navigate(
+                        LessonPlayerScreenDestination(
+                            lessons = LessonsWrapper(chapter.lessons),
+                            index = chapter.lessons.indexOf(lesson)
+                        )
+                    )
                 }
             }
         }

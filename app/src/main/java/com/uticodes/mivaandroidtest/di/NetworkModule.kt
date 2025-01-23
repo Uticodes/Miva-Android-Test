@@ -1,7 +1,12 @@
 package com.uticodes.mivaandroidtest.di
 
+import android.content.Context
+import com.russhwolf.settings.Settings
 import com.uticodes.mivaandroidtest.data.remote.ApiService
+import com.uticodes.mivaandroidtest.data.remote.repository.download.AppDownloadManager
+import com.uticodes.mivaandroidtest.data.remote.repository.download.AppDownloadManagerImpl
 import com.uticodes.mivaandroidtest.utils.Constants.BASE_URL
+import com.uticodes.mivaandroidtest.utils.PlayerUtil
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -69,4 +74,16 @@ object NetworkModule {
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
     }
+
+    @Singleton
+    @Provides
+    fun provideSettings(): Settings = Settings()
+
+    @Singleton
+    @Provides
+    fun providePlayerUtil(): PlayerUtil = PlayerUtil()
+
+    @Singleton
+    @Provides
+    fun provideDownloadManager(context: Context): AppDownloadManager = AppDownloadManagerImpl(context)
 }

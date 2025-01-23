@@ -21,6 +21,11 @@
     <string name="chapter">Chapter %1$s</string>
     <string name="lessons">%1$s Lessons</string>
     <string name="search_for_a_lesson_or_topic">Search for a lesson or topic</string>
-
     <string name="only_biology_is_available">Not available yet. Only Biology is available at the moment</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="resume_learning">Resume Learning</string>
+    <string name="kindly_enter_a_note">Please enter a note to proceed</string>
+    <string name="download_notification">Download Notification</string>
+    <string name="you_ve_watched_of_lessons">You\'ve watched %1$s of %2$s lessons</string>
+    <string name="daily_login_reward">Daily Login Reward</string>
 </resources>

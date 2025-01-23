@@ -33,6 +33,8 @@ import androidx.compose.ui.unit.sp
 import com.uticodes.mivaandroidtest.R
 import com.uticodes.mivaandroidtest.data.models.Chapter
 import com.uticodes.mivaandroidtest.data.models.Lesson
+import com.uticodes.mivaandroidtest.ui.theme.Grey
+import com.uticodes.mivaandroidtest.ui.theme.TextColor
 
 @Composable
 fun ChaptersView(
@@ -88,10 +90,13 @@ fun ChapterCard(chapter: Chapter, index: Int, onSelectedLesson: (title: Lesson) 
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(stringResource(R.string.chapter, index + 1))
+                        Text(
+                            stringResource(R.string.chapter, index + 1),
+                            color = TextColor
+                        )
                         Text(
                             modifier = Modifier
-                                .background(Color(0xFFF0F0F0), RoundedCornerShape(12.dp))
+                                .background(Grey.copy(alpha = 0.15f), RoundedCornerShape(12.dp))
                                 .padding(horizontal = 12.dp, vertical = 8.dp),
                             text = stringResource(R.string.lessons, chapter.lessons.size),
                             fontSize = 12.sp
@@ -102,8 +107,12 @@ fun ChapterCard(chapter: Chapter, index: Int, onSelectedLesson: (title: Lesson) 
                         Text(
                             modifier = Modifier.weight(1f),
                             text = chapter.title,
-                            style = MaterialTheme.typography.bodySmall,
-                            fontWeight = FontWeight.W500
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                fontWeight = FontWeight.W500,
+                                color = TextColor,
+                                fontSize = 12.sp
+                            ),
+
                         )
 
                         Icon(
