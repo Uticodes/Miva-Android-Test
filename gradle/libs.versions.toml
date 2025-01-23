@@ -31,6 +31,7 @@ coroutine-test = "1.6.1"
 turbine = "0.13.0"
 detetk = "1.23.3"
 accompanist = "0.30.1"
+junitJunit = "4.12"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -89,6 +90,7 @@ hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testi
 mockitoCore = { module = "org.mockito:mockito-core", version.ref = "mockito-core" }
 mockitoInline = { module = "org.mockito:mockito-inline", version.ref = "mockito-inline" }
 mockitoKotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
+junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

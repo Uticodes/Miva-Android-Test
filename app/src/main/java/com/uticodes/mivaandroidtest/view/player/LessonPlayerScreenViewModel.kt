@@ -72,7 +72,7 @@ class LessonPlayerScreenViewModel @Inject constructor(
         initializeMedia()
     }
 
-    private fun fetchBookmarks() {
+    fun fetchBookmarks() {
         bookmarks.clear()
         bookmarks.addAll(bookmarkUseCase.getBookmarks(currentLesson.value))
     }

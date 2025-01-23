@@ -88,6 +88,8 @@ dependencies {
     //Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.junit.junit)
     ksp(libs.hilt.compiler)
     ksp(libs.androidx.hilt.compiler)
     ksp(libs.compose.destinations.ksp)
