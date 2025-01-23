@@ -67,7 +67,7 @@ fun ChapterCard(chapter: Chapter, index: Int, onSelectedLesson: (title: Lesson) 
             .padding(2.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color.White,
-            ),
+        ),
         elevation = CardDefaults.cardElevation(0.dp),
         shape = MaterialTheme.shapes.large
     ) {
