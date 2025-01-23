@@ -233,7 +233,7 @@ fun LessonPlayerScreen(navigator: DestinationsNavigator) {
                             return@TextButton
                         }
                         viewModel.saveBookmark(dialogText.trim())
-
+                        dialogText = ""
                         showBookmarkDialog = false
                         if (temporarilyPaused) {
                             viewModel.exoPlayer.play()
