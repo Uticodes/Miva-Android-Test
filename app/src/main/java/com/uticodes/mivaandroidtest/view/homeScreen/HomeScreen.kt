@@ -1,6 +1,5 @@
 package com.uticodes.mivaandroidtest.view.homeScreen
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,6 +21,7 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.uticodes.mivaandroidtest.R
 import com.uticodes.mivaandroidtest.ui.theme.TextColor
+import com.uticodes.mivaandroidtest.utils.showToast
 import com.uticodes.mivaandroidtest.view.destinations.SubjectDetailsScreenDestination
 import com.uticodes.mivaandroidtest.view.homeScreen.component.CarouselView
 import com.uticodes.mivaandroidtest.view.homeScreen.component.SearchBarView
@@ -70,11 +70,7 @@ fun HomeScreen(
                 subjects.filter { it.title.lowercase().contains(searchQuery.trim().lowercase()) }
             ) { subject ->
                 if (subject.title != context.getString(R.string.biology)) {
-                    Toast.makeText(
-                        context,
-                        context.getString(R.string.only_biology_is_available),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    context.showToast(context.getString(R.string.only_biology_is_available))
                     return@Subjects
                 }
                 navigator.navigate(SubjectDetailsScreenDestination(subject))

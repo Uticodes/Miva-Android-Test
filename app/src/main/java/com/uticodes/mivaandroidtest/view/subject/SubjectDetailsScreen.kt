@@ -37,6 +37,7 @@ import com.uticodes.mivaandroidtest.ui.theme.TextColor
 import com.uticodes.mivaandroidtest.utils.LessonsWrapper
 import com.uticodes.mivaandroidtest.utils.UIState
 import com.uticodes.mivaandroidtest.view.destinations.LessonPlayerScreenDestination
+import com.uticodes.mivaandroidtest.view.destinations.LessonSplashScreenDestination
 import com.uticodes.mivaandroidtest.view.homeScreen.component.SearchBarView
 import com.uticodes.mivaandroidtest.view.homeScreen.component.TitleText
 import com.uticodes.mivaandroidtest.view.subject.components.TopBar
@@ -47,7 +48,9 @@ import com.uticodes.mivaandroidtest.view.viewModel.SubjectViewModel
     navArgsDelegate = SubjectDetailsScreenNavArgs::class
 )
 @Composable
-fun SubjectDetailsScreen(navigator: DestinationsNavigator) {
+fun SubjectDetailsScreen(
+    navigator: DestinationsNavigator
+) {
     val viewModel: SubjectViewModel = hiltViewModel()
     val subject = viewModel.subject
 
@@ -146,7 +149,7 @@ fun SubjectDetailsScreen(navigator: DestinationsNavigator) {
                 ) { lesson ->
                     val chapter = chapters.firstOrNull { it.lessons.contains(lesson) } ?: return@ChaptersView
                     navigator.navigate(
-                        LessonPlayerScreenDestination(
+                        LessonSplashScreenDestination(
                             lessons = LessonsWrapper(chapter.lessons),
                             index = chapter.lessons.indexOf(lesson)
                         )
