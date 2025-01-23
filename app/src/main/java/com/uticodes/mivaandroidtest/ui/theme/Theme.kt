@@ -42,7 +42,8 @@ fun MivaAndroidTestTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (darkTheme) dynamicLightColorScheme(context) else dynamicLightColorScheme(context)
+                /*dynamicDarkColorScheme(context)*/
         }
 
         darkTheme -> DarkColorScheme

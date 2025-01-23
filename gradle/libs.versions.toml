@@ -30,6 +30,7 @@ truth = "1.1.4"
 coroutine-test = "1.6.1"
 turbine = "0.13.0"
 detetk = "1.23.3"
+accompanist = "0.30.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +53,9 @@ compose-navigation = { group = "androidx.navigation", name = "navigation-compose
 compose-destinations = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "compose-destinations" }
 compose-destinations-ksp = { group = "io.github.raamcosta.compose-destinations", name = "ksp", version.ref = "compose-destinations" }
 kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
+accompanist-pager-indicators = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
 
 settings = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "settings" }
 settings-noarg = { group = "com.russhwolf", name = "multiplatform-settings-no-arg", version.ref = "settings" }
